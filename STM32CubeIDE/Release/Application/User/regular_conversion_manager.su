@@ -1,0 +1,10 @@
+E:/Consulting/VEOL/ArthroscopicShaver/Hardware/BLDC-Motor/STSpin3201Hall-Test1/Src/regular_conversion_manager.c:200:9:RCM_RegisterRegConv	16	static
+E:/Consulting/VEOL/ArthroscopicShaver/Hardware/BLDC-Motor/STSpin3201Hall-Test1/Src/regular_conversion_manager.c:167:9:RCM_RegisterRegConv_WithCB	16	static
+E:/Consulting/VEOL/ArthroscopicShaver/Hardware/BLDC-Motor/STSpin3201Hall-Test1/Src/regular_conversion_manager.c:265:10:RCM_ExecRegularConv	20	static
+E:/Consulting/VEOL/ArthroscopicShaver/Hardware/BLDC-Motor/STSpin3201Hall-Test1/Src/regular_conversion_manager.c:384:6:RCM_RequestUserConv	0	static
+E:/Consulting/VEOL/ArthroscopicShaver/Hardware/BLDC-Motor/STSpin3201Hall-Test1/Src/regular_conversion_manager.c:405:10:RCM_GetUserConv	0	static
+E:/Consulting/VEOL/ArthroscopicShaver/Hardware/BLDC-Motor/STSpin3201Hall-Test1/Src/regular_conversion_manager.c:423:6:RCM_ExecUserConv	16	static
+E:/Consulting/VEOL/ArthroscopicShaver/Hardware/BLDC-Motor/STSpin3201Hall-Test1/Src/regular_conversion_manager.c:454:21:RCM_GetUserConvState	0	static
+E:/Consulting/VEOL/ArthroscopicShaver/Hardware/BLDC-Motor/STSpin3201Hall-Test1/Src/regular_conversion_manager.c:476:6:RCM_PauseRegularConv	8	static
+E:/Consulting/VEOL/ArthroscopicShaver/Hardware/BLDC-Motor/STSpin3201Hall-Test1/Src/regular_conversion_manager.c:520:6:RCM_ExecNextConv	16	static
+E:/Consulting/VEOL/ArthroscopicShaver/Hardware/BLDC-Motor/STSpin3201Hall-Test1/Src/regular_conversion_manager.c:565:6:RCM_ReadOngoingConv	20	static
