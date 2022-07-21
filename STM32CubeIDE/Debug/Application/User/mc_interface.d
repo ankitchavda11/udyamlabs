@@ -49,7 +49,8 @@ Application/User/mc_interface.o: \
  ../../MCSDK_v5.4.8/MotorControl/MCSDK/MCLib/Any/Inc/pid_regulator.h \
  ../../MCSDK_v5.4.8/MotorControl/MCSDK/MCLib/Any/Inc/speed_pos_fdbk.h \
  ../../Inc/mc_interface.h \
- ../../MCSDK_v5.4.8/MotorControl/MCSDK/MCLib/Any/Inc/state_machine.h
+ ../../MCSDK_v5.4.8/MotorControl/MCSDK/MCLib/Any/Inc/state_machine.h \
+ ../../MCSDK_v5.4.8/MotorControl/MCSDK/MCLib/Any/Inc/hall_speed_pos_fdbk.h
 ../../Inc/mc_math.h:
 ../../MCSDK_v5.4.8/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h:
 ../../Inc/mc_stm_types.h:
@@ -100,3 +101,4 @@ Application/User/mc_interface.o: \
 ../../MCSDK_v5.4.8/MotorControl/MCSDK/MCLib/Any/Inc/speed_pos_fdbk.h:
 ../../Inc/mc_interface.h:
 ../../MCSDK_v5.4.8/MotorControl/MCSDK/MCLib/Any/Inc/state_machine.h:
+../../MCSDK_v5.4.8/MotorControl/MCSDK/MCLib/Any/Inc/hall_speed_pos_fdbk.h:

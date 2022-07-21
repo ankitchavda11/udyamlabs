@@ -26,6 +26,10 @@
 
 #include "mc_interface.h"
 
+	  /*--My code--*/
+#include "hall_speed_pos_fdbk.h"
+	  /*--My code ends --*/
+
 /** @addtogroup MCSDK
   * @{
   */
@@ -172,6 +176,7 @@ __weak bool MCI_StartMotor( MCI_Handle_t * pHandle )
   return RetVal;
 }
 
+
 /**
   * @brief  This is a user command used to begin the stop motor procedure.
   *         If the state machine is in RUN or START states the command is
@@ -191,6 +196,23 @@ __weak bool MCI_StopMotor( MCI_Handle_t * pHandle )
 {
   return STM_NextState( pHandle->pSTM, ANY_STOP );
 }
+
+/*--My code--*/
+__weak bool MCI_OSC_HOME( MCI_Handle_t * pHandle )
+{
+	return STM_NextState( pHandle->pSTM, OSC_HOME );
+}
+/*  bool RetVal = STM_NextState( pHandle->pSTM, OSC_HOME );
+
+  if ( RetVal == true )
+  {
+    pHandle->CommandState = MCI_COMMAND_NOT_ALREADY_EXECUTED;
+  }
+
+  return RetVal;
+
+}
+/*--My code ends --*/
 
 /**
   * @brief  This is a user command used to indicate that the user has seen the

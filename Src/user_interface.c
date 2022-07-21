@@ -707,6 +707,24 @@ __weak bool UI_ExecCmd(UI_Handle_t *pHandle, uint8_t bCmdID)
       MCI_Clear_Iqdref(pMCI);
     }
     break;
+     /*--My code--*/
+  case MC_PROTOCOL_CMD_OSC_HOME:
+    {
+    	if (MCI_GetSTMState(pMCI) == IDLE)
+    	      {
+    	        MCI_StartMotor(pMCI);
+    	        pHandle->test = 0;
+    	      }
+    	      else
+    	      {
+    	        MCI_StopMotor(pMCI);
+    	        pHandle->test = 1;
+    	      }
+
+    }
+    break;
+
+	  /*--My code ends --*/
 
   default:
     {

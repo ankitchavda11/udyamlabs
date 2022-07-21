@@ -272,6 +272,10 @@ typedef enum
 #define MC_PROTOCOL_CMD_PFC_FAULT_ACK     0x0C
 #define MC_PROTOCOL_CMD_SC_START          0x0D
 #define MC_PROTOCOL_CMD_SC_STOP           0x0E
+/*--My code--*/
+#define MC_PROTOCOL_CMD_OSC_HOME          0x0F
+/*--My code ends --*/
+
 
 #define CTRBDID 10010
 #define PWBDID 10010
@@ -359,6 +363,7 @@ struct UI_Handle
   MCT_Handle_t** pMCT;             /*!< Pointer of MC tuning list.*/
   uint32_t* pUICfg;       /*!< Pointer of UI configuration list.*/
   uint8_t bSelectedDrive; /*!< Current selected MC object in the list.*/
+  bool test;
 };
 
 /**
@@ -545,6 +550,7 @@ void UI_SetUserDAC(UI_Handle_t *pHandle, DAC_UserChannel_t bUserChNumber, int16_
 /**
   * @}
   */
+
 
 #ifdef __cplusplus
 }

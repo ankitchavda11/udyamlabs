@@ -143,119 +143,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  /*--My code--*/
+	  /*--My code ends --*/
     /* USER CODE END WHILE */
-	  oldAngle =(uint16_t *) HALL_M1.HallState;
+	  if(UI_Params.test == 0){
+		  HAL_UART_Transmit(&huart1, (uint8_t*)buffer, sprintf(buffer, "\t STATE: %u\r\n", HALL_M1.HallStateCounter), 100);
+		  HAL_Delay(1000);
+	  }else{
+		  HAL_UART_Transmit(&huart1, (uint8_t*)buffer, sprintf(buffer, "\t STATE: %u\r\n", HALL_M1.HallState), 100);
+		  HAL_Delay(1000);
+	  }
 
-	  	  if( HALL_M1.HallStateCounter != 0 && moveMotor) //Default Position 0
-	  	  {
-
-	  		  if(stepA && pendingPhase)
-	  		  {
-	  //			  HAL_UART_Transmit(&huart1, (uint8_t*)buffer, sprintf(buffer, "in phase control\n"), 100);
-	  			  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,0);
-	  			  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,pulse);
-	  			    __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,0);
-	  			  stepA =0 ;
-	  			  stepAB=1;
-	  			  pendingPhase = 0;
-	  			  execute++;
-	  		  }
-	  		  if(stepAB && pendingPhase)
-	  		  {
-	  //			  HAL_UART_Transmit(&huart1, (uint8_t*)buffer, sprintf(buffer, "in phase control\n"), 100);
-	  		  	  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,0);
-	  		  	  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,pulse);
-	  		  	  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,pulse);
-	  		  	   stepAB =0 ;
-	  		  	   stepB=1;
-	  		  	   pendingPhase = 0;
-	  		  	}
-	  		  if(stepB && pendingPhase)
-	  		  	{
-				  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
-				  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,pulse);
-				  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,0);
-				  stepB = 0;
-				  stepBC =1;
-				  pendingPhase = 0;
-	  		  	}
-	  		  if(stepBC && pendingPhase)
-	  		  	{
-	  		  	    __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
-	  		  	    __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,pulse);
-	  		  	    __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,pulse);
-	  		  	    stepBC = 0;
-	  		  	    stepC =1;
-	  		  	    pendingPhase = 0;
-	  		  	 }
-	  	      if(stepC && pendingPhase)
-	  	      	 {
-					__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
-					__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,0);
-					__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,pulse);
-					stepC = 0;
-					stepCA=1;
-					pendingPhase = 0;
-	  	         }
-	  	      if(stepCA && pendingPhase)
-	  	      	 {
-					 __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,pulse);
-					 __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,0);
-					 __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,pulse);
-					stepC = 0;
-					stepA=1;
-					pendingPhase = 0;
-	  	      	  }
-
-	  	        pendingPhase = 1;
-
-	  	  }
-	  	  else
-	  	  {
-				  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
-				  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,0);
-				  __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,0);
-				  moveMotor = 0;
-				  if(count == 0 )
-				  {
-						   oldhallstate =(uint16_t *) HALL_M1.HallState;
-						   count =1;
-				  }
-					  execute=0;
-					  HAL_Delay(0.1);
-
-	  	  }
-
-	  	  presenthallstate = (uint16_t *) HALL_M1.HallState;
-
-		  if( HALL_M1.HallState == 47 && (oldhallstate != presenthallstate))
-					  {
-						  if( oldhallstate < presenthallstate)
-						  {
-							  HALL_M1.HallStateCounter = HALL_M1.HallStateCounter-oldhallstate+1;
-							 // execute = execute - oldhallstate;
-						  }
-						  else
-						  {
-							  HALL_M1.HallStateCounter = HALL_M1.HallStateCounter-presenthallstate-1;
-							 // execute = execute - presenthallstate;
-						  }
-
-						 count =0;
-						 execute=0;
-					  }
-		  HAL_UART_Transmit(&huart1, (uint8_t*)buffer, sprintf(buffer, "\n at pole: %u\r\n", HALL_M1.HallStateCounter), 75);
-
-		  execute = execute%7;
-		 // HAL_Delay(10);
-		  waitToMoveCounter++;
-		  if(moveMotor == 0 && waitToMoveCounter >=50)
-		  {
-			  moveMotor =1;
-			  waitToMoveCounter=0;
-		  }
-
-
+//if(OSC_HOME == 21){
+//	HAL_UART_Transmit(&huart1, (uint8_t*)buffer, sprintf(buffer, "\t STATE: %u\r\n", HALL_M1.HallStateCounter), 100);
+//	HAL_Delay(1000);
+//}
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

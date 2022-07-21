@@ -216,6 +216,17 @@ __weak bool STM_NextState( STM_Handle_t * pHandle, State_t bState )
       }
       break;
 
+      /*--My code--*/
+  /*  case OSC_HOME:
+          if ( bState == STOP )
+          {
+            bNewState = bState;
+            bChangeState = true;
+          }
+          break;
+
+      	  /*--My code ends --*/
+
     case STOP:
       if ( bState == STOP_IDLE )
       {

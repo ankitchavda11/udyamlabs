@@ -125,7 +125,13 @@ typedef enum
                           state is normally STOP_IDLE, state machine is moved as
                           soon as the user has acknowledged the fault condition.
                       */
-  WAIT_STOP_MOTOR = 20
+  WAIT_STOP_MOTOR = 20,
+
+  /*--My code--*/
+  OSC_HOME = 21
+  /*--My code ends --*/
+
+
 
 } State_t;
 
